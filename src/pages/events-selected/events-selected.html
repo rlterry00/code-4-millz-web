@@ -1,0 +1,48 @@
+
+<ion-header>
+
+  <app-user-nav-menu></app-user-nav-menu>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row class="headerRowStyle">
+    <ion-col col-8>
+      <h1>{{eventInfo.DisplayTitle}}</h1>
+      <h5>{{eventInfo.AddressDisplayName}}</h5>
+      <div>{{eventInfo.StreetAddressOne}} {{eventInfo.StreetAddressTwo}}</div>
+      <div>{{eventInfo.City}}, {{eventInfo.State}} {{eventInfo.Zip}}</div>
+    </ion-col>
+    <ion-col>
+      <div text-right><span class="dateStyle">{{eventInfo.StartTime | date:"mediumDate"}}</span></div>
+      <div text-right><span class="dateStyle">{{eventInfo.StartTime | date:"shortTime"}}</span></div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6>
+      <p>
+        {{eventInfo.Description}}
+      </p>
+        <ion-badge *ngFor="let tags of eventInfo.Tags" class="tagStyle">#{{tags.Name}}</ion-badge>
+    </ion-col>
+    <ion-col col-6>
+      <h6 text-center>{{eventInfo.CategoryName | uppercase}}</h6>
+      <ion-card>
+        <img [src]="eventInfo.ImageUrl" height="175">
+      </ion-card>
+      <h6 text-center>{{eventInfo.OrganizationUserName}}</h6>
+    </ion-col>
+  </ion-row>
+  <div text-center>
+    <button ion-button class="rsvpBtnStyle" color="success">RSVP</button>
+  </div>
+  <div text-right *ngIf="!userCheckedIn">
+    <button ion-button clear color="dark" icon-only class="submitBtn" (click)="checkIn()"><ion-icon name="md-square-outline"></ion-icon></button>
+    <div (click)="checkIn()" class="submitBtn"><strong>Check In!</strong></div>
+  </div>
+  <div text-right *ngIf="userCheckedIn">
+    <button ion-button clear color="success" icon-only class="submitBtn"><ion-icon name="md-checkbox-outline"></ion-icon></button>
+    <div class="submitBtn" color="success"><strong>You Have Checked In!</strong></div>
+  </div>
+</ion-content>

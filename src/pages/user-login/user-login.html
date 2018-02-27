@@ -1,0 +1,34 @@
+
+<ion-header>
+
+
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="loginWrapStyle">
+    <h1 class="logInHead" text-center>Civic'd</h1>
+  </div>
+
+    <form padding>
+          <h6>Email</h6>
+          <ion-input class="inputStyle" id="userName" type="text" name="userName"></ion-input>
+          <h6>Password</h6>
+          <ion-input class="inputStyle" id="password" type="password" name="userPassword"></ion-input>
+    </form>
+  <div text-center>
+    <button class="logInBtn" ion-button primary type="submit">Login</button>
+  </div>
+  <div text-center>
+    <button class="registerBtn" ion-button color="light" type="button" round [navPush]="startRegister">Create Account</button>
+  </div>
+  <div>
+    <p>
+      Have an organization?
+    </p>
+    <p>
+      <a [navPush]="inviteRequest"><strong>Get an invite</strong></a> and post your event!
+    </p>
+  </div>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "code-4-millz",
+  "app_id": "15e7096a",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,64 @@
+
+<ion-header>
+  <app-user-nav-menu></app-user-nav-menu>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid padding>
+    <ion-row class="centerRow">
+      <ion-col>
+        <h2>Post Event</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row class="centerRow">
+      <ion-col>
+        <form #f="ngForm" class="formStyle">
+          <ion-label stacked><strong>Event Name*</strong></ion-label>
+          <ion-input class="inputStyle" type="text" name="eventName" ngModel required></ion-input>
+          <ion-label stacked><strong>Event Location*</strong></ion-label>
+          <ion-input class="inputStyle" type="text" name="eventLocation" ngModel required></ion-input>
+          <div text-center>
+            <div *ngIf="eventDate === ''">
+              <button ion-button clear icon-start (click)="selectDate()" class="calendarBtnStyle">
+                <ion-icon name="md-calendar"></ion-icon><label class="dateDisplayStyle">Tap to Enter Event Date*</label>
+              </button>
+            </div>
+            <div *ngIf="eventDate !=''">
+              <button ion-button clear icon-only (click)="selectDate()" class="calendarBtnStyle">
+                <ion-icon name="md-calendar"></ion-icon><label class="dateDisplayStyle"><strong>Date: {{eventDate | date:'mediumDate'}} {{eventDate | date:'shortTime'}} </strong></label>
+              </button>
+            </div>
+          </div>
+          <ion-label stacked><strong>Event Description</strong></ion-label>
+          <ion-textarea class="inputStyle" type="text" name="eventDescription" ngModel></ion-textarea>
+          <ion-item class="selectItemStyle">
+            <ion-label stacked color="dark"><strong>Event Type:</strong></ion-label>
+            <ion-select ngModel name="eventType">
+              <ion-option value="good">Good</ion-option>
+              <ion-option value="okay">Okay</ion-option>
+              <ion-option value="bad">Bad</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-label stacked><strong>Website</strong></ion-label>
+          <ion-input class="inputStyle" type="text" name="eventWebsite" ngModel></ion-input>
+          <ion-label stacked><strong>Tags</strong></ion-label>
+          <ion-input class="inputStyle" type="text" name="eventTags" ngModel></ion-input>
+          <div text-center>
+            <button *ngIf="!imageLoad" (click)="uploadPic()" ion-button icon-end color="light" class="picBtnStyle" small>Upload Pic +</button>
+            <button [disabled]="true" *ngIf="imageLoad" ion-button color="success">Image loading...</button>
+          </div>
+          <div *ngIf="imageUploaded">
+            <ion-card>
+              <img [src]="placeImage" height="250">
+            </ion-card>
+          </div>
+          <hr />
+          <div text-center>
+            <button [disabled]="!f.valid && !imageLoad && eventDate !=''" ion-button icon-end color="success" class="picBtnStyle">Submit Event</button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,13 @@
+
+<ion-navbar>
+  <ion-buttons left>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-buttons right>
+    <div (click)="showPortfolioMenu($event)">
+        <img text-right class="defaultNavImgStyle" [src]="portfolioPic">
+    </div>
+  </ion-buttons>
+</ion-navbar>

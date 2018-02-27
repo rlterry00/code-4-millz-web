@@ -1,0 +1,35 @@
+page-user-register-auth-info {
+  .centerRow {
+    align-items: center;
+  }
+  .civicBtn {
+    font-size: 25px;
+    padding: 25px;
+  }
+  .formStyle {
+    margin-top: 20px;
+  }
+  .labelStyle {
+    font-size: 24px;
+  }
+  .inputStyle {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+  }
+  ion-avatar img {
+    width:100% !important;
+    height : 100% !important;
+    max-width: 250px !important;  //any size
+    max-height: 250px !important; //any size
+  }
+  .iconStyle {
+    font-size: 25px;
+  }
+  .error {
+    color: red;
+  }
+  .swipeCard {
+    color: green;
+  }
+}

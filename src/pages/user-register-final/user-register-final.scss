@@ -1,0 +1,40 @@
+page-user-register-final {
+  .cardStyle {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+  }
+  .tagCardStyle {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 2px;
+  }
+  .rowStyle {
+    align-items: center;
+  }
+  .iconStyle {
+    font-size: 30px;
+  }
+  .titleStyle {
+    font-size: 25px;
+  }
+  .tagTitleStyle {
+    font-size: 25px;
+    padding-left: 10px;
+  }
+  .tagStyle {
+    margin-top: 5px;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+  }
+  .badgeColor {
+    background: rgb(255,77,0);
+  }
+  .submitBtn {
+    font-size: 30px;
+    margin-top: 10px;
+  }
+}

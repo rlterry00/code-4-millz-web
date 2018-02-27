@@ -1,0 +1,31 @@
+<ion-header>
+  <app-user-nav-menu></app-user-nav-menu>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid (swiperight)="swipeRightEvent(f)">
+    <ion-row>
+      <ion-col>
+        <h1>Voting District</h1>
+        <form #f="ngForm" class="formStyle" padding>
+          <h4><strong>Zip Code*</strong></h4>
+          <ion-input class="inputStyle" id="userZip" type="number" name="userZip" [(ngModel)]="zip" required minlength="5" #userZip="ngModel" placeholder="Enter your zip code"></ion-input>
+          <div *ngIf="!userZip.valid && userZip.dirty">
+            <p class="error">
+              Zip Code Must Be 5 Digits
+            </p>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 text-center>
+        <button *ngIf="!fromFinal" ion-button (click)="goBack()" color="light" icon-left><ion-icon name="arrow-back"></ion-icon>Previous</button>
+      </ion-col>
+      <ion-col col-6 text-center>
+          <button *ngIf="f.valid" (click)="swipeRightEvent(f)" color="success" ion-button icon-right>Next<ion-icon name="arrow-forward"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

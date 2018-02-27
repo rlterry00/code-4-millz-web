@@ -1,0 +1,97 @@
+
+<ion-header>
+
+<app-user-nav-menu></app-user-nav-menu>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="tagCardStyle">
+          <ion-row class="rowStyle">
+            <ion-col col-9>
+              <div class="tagTitleStyle"><strong>Interests</strong></div>
+            </ion-col>
+            <ion-col col-3 text-right>
+              <button ion-button clear icon-only (click)="backToTags()"><ion-icon name="create" class="iconStyle"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <div *ngIf="this.userInfo.userTags.length === 0">
+              <h5 text-center padding>You have not selected any interests.</h5>
+            </div>
+              <ion-col col-4>
+                <div *ngFor="let tags of firstTagsArr" text-center><ion-badge class="tagStyle badgeColor">#{{tags}}</ion-badge></div>
+              </ion-col>
+              <ion-col col-4>
+                <div *ngFor="let tags of secondTagsArr" text-center><ion-badge class="tagStyle badgeColor">#{{tags}}</ion-badge></div>
+              </ion-col>
+              <ion-col col-4>
+                <div *ngFor="let tags of thirdTagsArr" text-center><ion-badge class="tagStyle badgeColor">#{{tags}}</ion-badge></div>
+              </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="cardStyle" padding>
+          <ion-row class="rowStyle">
+            <ion-col col-9>
+              <div class="titleStyle"><strong>About</strong></div>
+            </ion-col>
+            <ion-col col-3 text-right>
+              <button ion-button clear icon-only (click)="backToAbout()"><ion-icon name="create" class="iconStyle"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div *ngIf="this.userInfo.userAbout === ''">
+                <h5 text-center>You have not written about yourself.</h5>
+              </div>
+              <div>
+                {{userInfo.userAbout}}
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="cardStyle" padding>
+          <ion-row class="rowStyle">
+            <ion-col col-9>
+              <div class="titleStyle"><strong>Voting District</strong></div>
+            </ion-col>
+            <ion-col col-3 text-right>
+              <button ion-button clear icon-only (click)="backToDistrict()"><ion-icon name="create" class="iconStyle"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div>
+                {{userInfo.userZip}}
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <div *ngIf="!success">
+          <button ion-button clear color="dark" icon-only class="submitBtn" (click)="submitAllInfo()"><ion-icon name="md-square-outline"></ion-icon></button>
+          <div (click)="submitAllInfo()" class="submitBtn"><strong>Submit!</strong></div>
+        </div>
+        <div *ngIf="success">
+          <button ion-button clear color="dark" icon-only class="submitBtn"><ion-icon name="md-checkbox-outline"></ion-icon></button>
+          <div class="submitBtn"><strong>Finished!</strong></div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

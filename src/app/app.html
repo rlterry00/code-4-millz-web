@@ -1,0 +1,25 @@
+<ion-menu [content]="nav" persistent="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="onLoad(homePage)">
+        <ion-icon name="home" item-left></ion-icon>
+        Home
+      </button>
+      <button ion-item (click)="onLoad(eventsPage)">
+        <ion-icon name="flag" item-left></ion-icon>
+        Events
+      </button>
+      <button ion-item (click)="onLoad(postEventPage)">
+        <ion-icon name="md-calendar" item-left></ion-icon>
+        Post Event
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="eventsPage" #nav></ion-nav>
