@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { UserNavMenuComponent } from "../components/user-nav-menu/user-nav-menu.component";
 import { NavProfilePopover } from "../components/popovers/nav-profile-popover";
 import { RegisterService } from "../services/register.service";
+import { DataVoterInfoService } from "../services/data-voter-info.service";
 import { UserLoginPage } from '../pages/user-login/user-login';
 import { UserRegisterAboutPage } from "../pages/user-register-about/user-register-about";
 import { UserRegisterAuthInfoPage } from "../pages/user-register-auth-info/user-register-auth-info";
@@ -24,6 +25,7 @@ import { DatePicker } from '@ionic-native/date-picker';
 import { Camera } from '@ionic-native/camera';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -48,7 +50,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -73,6 +76,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RegisterService,
+    DataVoterInfoService,
     DatePicker,
     Camera,
     NativeGeocoder,

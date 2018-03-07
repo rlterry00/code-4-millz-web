@@ -1,9 +1,13 @@
-
+//Service for storing user information during the registration process before submitting to database.
 
 export class RegisterService {
   userName = "";
   userAbout = "";
   userTagsArr = [];
+  userAddressOne = "";
+  userAddressTwo = "";
+  userCity = "";
+  userState = "";
   userZip = "";
 
   addUserTags(tags) {
@@ -21,9 +25,12 @@ export class RegisterService {
     console.log(this.userAbout);
   }
 
-  addUserZip(zip) {
+  addUserAddress(addressOne, addressTwo, city, state, zip) {
+    this.userAddressOne = addressOne;
+    this.userAddressTwo = addressTwo;
+    this.userCity = city;
+    this.userState = state;
     this.userZip = zip;
-    console.log(this.userZip);
   }
 
   getUserInfo() {
@@ -31,7 +38,11 @@ export class RegisterService {
       userName: this.userName,
       userAbout: this.userAbout,
       userTags: this.userTagsArr,
-      userZip: this.userZip
+      addressOne: this.userAddressOne,
+      addressTwo: this.userAddressTwo,
+      city: this.userCity,
+      state: this.userState,
+      zip: this.userZip
     };
     return userObj;
   }
@@ -39,8 +50,20 @@ export class RegisterService {
   getUserTags() {
     return this.userTagsArr;
   }
+  getUserAddressOne() {
+    return this.userAddressOne
+  }
+  getUserAddressTwo() {
+    return this.userAddressTwo
+  }
+  getUserCity() {
+    return this.userCity
+  }
+  getUserState() {
+    return this.userState
+  }
   getUserZip() {
-    return this.userZip;
+    return this.userZip
   }
 
   getUserAbout() {
@@ -55,6 +78,11 @@ export class RegisterService {
     this.userName = "";
     this.userAbout = "";
     this.userTagsArr = [];
+    this.userAddressOne = "";
+    this.userAddressTwo = "";
+    this.userCity = "";
+    this.userState = "";
     this.userZip = "";
+
   }
 }

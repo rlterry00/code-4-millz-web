@@ -1,4 +1,4 @@
-
+<!-- Page for showing a selected event -->
 <ion-header>
 
   <app-user-nav-menu></app-user-nav-menu>
@@ -37,11 +37,17 @@
   <div text-center>
     <button ion-button class="rsvpBtnStyle" color="success">RSVP</button>
   </div>
-  <div text-right *ngIf="!userCheckedIn">
+
+  <!-- Code below is for checking in.  The icon will change based on the users checked in status. -->
+  <div text-right *ngIf="!userCheckedIn && !locationSearch" padding>
     <button ion-button clear color="dark" icon-only class="submitBtn" (click)="checkIn()"><ion-icon name="md-square-outline"></ion-icon></button>
     <div (click)="checkIn()" class="submitBtn"><strong>Check In!</strong></div>
   </div>
-  <div text-right *ngIf="userCheckedIn">
+  <div text-right *ngIf="locationSearch" padding>
+    <button ion-button clear color="danger" icon-only class="submitBtn"><ion-icon name="md-square-outline"></ion-icon></button>
+    <div class="submitBtn"><strong>Please wait...</strong></div>
+  </div>
+  <div text-right *ngIf="userCheckedIn && !locationSearch" padding>
     <button ion-button clear color="success" icon-only class="submitBtn"><ion-icon name="md-checkbox-outline"></ion-icon></button>
     <div class="submitBtn" color="success"><strong>You Have Checked In!</strong></div>
   </div>

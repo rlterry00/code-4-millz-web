@@ -7,15 +7,18 @@
   <ion-grid (swiperight)="swipeRightEvent(f)">
     <ion-row>
       <ion-col>
-        <h1>Voting District</h1>
+        <h1 text-center>Voting District</h1>
         <form #f="ngForm" class="formStyle" padding>
-          <h4><strong>Zip Code*</strong></h4>
-          <ion-input class="inputStyle" id="userZip" type="number" name="userZip" [(ngModel)]="zip" required minlength="5" #userZip="ngModel" placeholder="Enter your zip code"></ion-input>
-          <div *ngIf="!userZip.valid && userZip.dirty">
-            <p class="error">
-              Zip Code Must Be 5 Digits
-            </p>
-          </div>
+          <h5><strong>Home Address*</strong></h5>
+          <ion-input class="inputStyle" id="userAddressOne" type="text" name="userAddressOne" [(ngModel)]="userAddressOne" required placeholder="Enter your address"></ion-input>
+          <br />
+          <ion-input class="inputStyle" id="userAddressTwo" type="text" name="userAddressTwo" [(ngModel)]="userAddressTwo" placeholder="Apt, Suite, etc."></ion-input>
+          <h5><strong>City*</strong></h5>
+          <ion-input class="inputStyle" id="userCity" type="text" name="userCity" [(ngModel)]="userCity" required placeholder="Enter your city"></ion-input>
+          <h5><strong>State*</strong></h5>
+          <ion-input class="inputStyle" id="userState" type="text" name="userState" [(ngModel)]="userState" required placeholder="Enter your state"></ion-input>
+          <h5><strong>Zip*</strong></h5>
+          <ion-input class="inputStyle" id="userZip" type="number" name="userZip" [(ngModel)]="userZip" required placeholder="Enter your Zipcode"></ion-input>
         </form>
       </ion-col>
     </ion-row>
